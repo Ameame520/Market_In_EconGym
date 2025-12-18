@@ -1,0 +1,15 @@
+torch
+env==0.1.0
+Flask==3.1.2
+gymnasium
+matplotlib==3.10.6
+numba==0.61.2
+numpy
+omegaconf==2.3.0
+openai==1.109.1
+pandas==2.3.2
+pyecharts==2.0.4
+scipy
+swanlab==0.6.10
+tqdm==4.67.1
+Werkzeug==3.1.3

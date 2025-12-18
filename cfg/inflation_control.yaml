@@ -1,0 +1,45 @@
+Environment:
+  env_core:
+    problem_scene: "inflation_control"
+    episode_length: 300
+  Entities:
+    - entity_name: 'government'
+      entity_args:
+        params:
+          type: "central_bank"  # Focus on pension policy. type_list: ['tax', 'pension', 'central_bank']
+
+    - entity_name: 'households'
+      entity_args:
+        params:
+          type: 'ramsey'
+          type_list: ['ramsey', 'OLG', 'OLG_risk_invest', 'ramsey_risk_invest']
+          households_n: 100
+          action_dim: 2
+
+
+    - entity_name: 'market'
+      entity_args:
+        params:
+          type: "perfect"   #  type_list: [ 'perfect', 'monopoly', 'monopolistic_competition', 'oligopoly' ]
+
+    - entity_name: 'bank'
+      entity_args:
+        params:
+          type: 'commercial'   # [ 'non_profit', 'commercial' ]
+          n: 1
+          lending_rate: 0.0345
+          deposit_rate: 0.0345
+          reserve_ratio: 0.1
+          base_interest_rate: 0.0345
+
+Trainer:
+  house_alg: "ddpg"
+  gov_alg: "ddpg"
+  firm_alg: "rule_based"
+  bank_alg: "ddpg"
+  seed: 1
+  epoch_length: 300
+  cuda: False
+  n_epochs: 300
+  test: False
+  wandb: False
