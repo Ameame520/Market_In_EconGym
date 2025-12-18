@@ -10,6 +10,13 @@
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Python Script" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
@@ -35,6 +42,7 @@
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "Python.hello.executor": "Run",
     "Python.main.executor": "Run",
     "Python.viz_index.executor": "Run",
     "RunOnceActivity.ShowReadmeOnStart": "true",
@@ -74,7 +82,7 @@
       <workItem from="1761886079113" duration="1501000" />
       <workItem from="1763958811642" duration="29000" />
       <workItem from="1765352010373" duration="5000" />
-      <workItem from="1766046126282" duration="633000" />
+      <workItem from="1766046126282" duration="1572000" />
     </task>
     <servers />
   </component>
