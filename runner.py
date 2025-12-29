@@ -172,30 +172,6 @@ class Runner:
                 action_dict, processed_actions_dict = self.agents_get_action(obs_dict_tensor)
                 next_obs_dict, reward_dict, done = self.envs.step(processed_actions_dict, t)
 
-                # Track self.e (ability) for each timestep
-                e_values = self.envs.households.e.flatten()
-                e_mean = np.mean(e_values)
-                e_std = np.std(e_values)
-                e_min = np.min(e_values)
-                e_max = np.max(e_values)
-                superstar_count = np.sum(self.envs.households.e_array[:, 1] > 0)
-                
-                # Store tracking data
-                e_track_entry = {
-                    'epoch': epoch,
-                    'timestep': t,
-                    'e_mean': float(e_mean),
-                    'e_std': float(e_std),
-                    'e_min': float(e_min),
-                    'e_max': float(e_max),
-                    'superstar_count': int(superstar_count),
-                    'households_n': int(self.envs.households.households_n),
-                    'e_values': e_values.tolist()  # Full list of all e values
-                }
-                self.e_tracking.append(e_track_entry)
-                
-                print(f"[Epoch {epoch}, Timestep {t}] e stats: mean={e_mean:.4f}, std={e_std:.4f}, min={e_min:.4f}, max={e_max:.4f}, superstars={superstar_count}/{self.envs.households.households_n}")
-
                 on_policy_process = all(self.envs.recursive_decompose_dict(self.agents_policy, lambda a: a.on_policy))
 
                 if on_policy_process:
@@ -256,12 +232,6 @@ class Runner:
 
         if self.wandb:
             wandb.finish()
-        
-        # Save e tracking data to file
-        e_tracking_path = os.path.join(self.model_path, f"{self.file_name}_e_tracking.json")
-        with open(e_tracking_path, 'w') as f:
-            json.dump(self.e_tracking, f, indent=2, cls=NumpyEncoder)
-        print(f"\n[E Tracking] Saved e tracking data to: {e_tracking_path}")
 
     def sub_agent_training(self, agent_name, agent_policy, transitions, loss):
         if agent_policy.on_policy == True:

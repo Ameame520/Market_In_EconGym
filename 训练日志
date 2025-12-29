@@ -1,0 +1,14 @@
+12.29 比较baseline问题场景下，4种市场设置的差别
+GDP perfect>...>monopoly
+gini 差不多
+家庭财富 perfect>...>
+家庭消费 perfect>... 其它三种市场，居民几乎不消费（肯定不对） mean：4200 vs mean 9.35
+average work hour 几乎相同
+income：4.3w vs 1.4w
+从average pension开始，下面的指标全都没做完。没有显示。
+
+ideas：
+增加一个LLM相关的module？
+增加一个MFRL相关的module？
+市场定价如何体现在这个项目中？又如何优化“市场定价”这个故事 让AI期刊可以发表这个论文？
+真是越做越不想做啊！
